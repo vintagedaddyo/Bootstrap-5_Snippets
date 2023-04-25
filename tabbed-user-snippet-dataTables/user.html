@@ -1,0 +1,779 @@
+<!doctype html>
+<!-- Bootstrap Color Modes (data-bs-theme="auto") -->
+<html data-bs-theme="auto" lang="en">
+  <head>
+    <!-- Bootstrap Color Modes JS -->
+    <script src="assets/bootstrap/js/color-modes.js"></script>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#7952b3">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Description -->
+    <meta name="description" content="">
+    <!-- Author -->
+    <meta name="author" content="Vintagedaddyo, and Bootstrap contributors">     
+
+    <!-- Title -->
+    <title>User CP Example (tabs / dataTables)· Bootstrap v5.3</title>
+
+    <!-- CSS Stylesheets -->
+
+    <!-- Font Awesome CSS -->    
+    <link href="assets/font-awesome/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font: Manrope CSS -->
+    <link href="assets/fonts/manrope/css2.css?family=Manrope:wght@200&display=swap" rel="stylesheet">
+
+    <!-- dataTables CSS -->
+    <link href="assets/datatables/responsive-2.4.1/css/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="assets/datatables/datatables-1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="assets/datatables/responsive-2.4.1/css/responsive.bootstrap5.min.css" rel="stylesheet">    
+
+    <!-- CSS -->
+
+    <style>
+
+          /* Color Modes Toggler Button */
+          .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+          }
+
+          /* Color Modes Toggle */
+          .bd-mode-toggle {
+            z-index: 1500;
+          }
+
+          body {
+            font-family: 'Manrope', sans-serif;
+          }
+
+          .dropdown-toggle::after {
+            content: unset;
+          }
+
+          .avatar {
+            height: 200px;
+            width: 200px;
+          }
+
+          @media (max-width: 767.98px) { 
+
+            .avatar {
+              height: 100px;
+              width: 100px;
+            }
+
+          }
+
+         /* dT Info L Margin */
+         .dataTables_info {
+            margin-left: 8px;
+         }
+
+         /* dT Pagination R Margin */
+         div.dataTables_wrapper div.dataTables_paginate {
+            margin-right: 8px;
+         }
+
+         /* dT Filter R Margin */
+         div.dataTables_wrapper div.dataTables_filter {
+            margin-right: 8px;
+         }
+
+         /* dT Length L Margin */
+         .dataTables_length {
+            margin-left: 8px;
+         }
+
+         /* Remove thead (1st) Left Border */
+         .table-bordered > thead > tr > th:nth-child(1) {
+            border-left-width: 0px !important;
+         }
+
+         /* Remove thead (6th) Right Border */ 
+         .table-bordered > thead > tr > th:nth-child(6) {
+            border-right-width: 0px !important;   
+         }
+
+         /* Remove tbody (1st) Left Border */
+         .table-bordered > tbody > tr > th:nth-child(1) {
+            border-left-width: 0px !important;
+         }
+
+         /* Remove tbody (6th) Right Border */ 
+         .table-bordered > tbody > tr > td:nth-child(6) {
+            border-right-width: 0px !important;   
+         }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- // Bootstrap Color Modes Toggler -->
+
+    <!-- SVG Icons for color modes toggler -->
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+
+      <!-- CSS -->
+
+      <style>
+
+        @media (prefers-color-scheme: dark) {
+
+          .dropdown-toggle::after {
+            fill: #666; <!-- Set icon color for dark mode -->
+            opacity: 0.9;
+            content: unset;
+          }
+
+          path {
+            fill: #666; <!-- Set icon color for dark mode -->
+            opacity: 0.9;
+          }
+
+        }
+      </style>
+
+      <!-- Symbols -->
+
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <!-- Dropdown Toggler -->
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary bg-body-tertiary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div> <!-- \\ Bootstrap Color Modes Toggler -->
+
+    <!-- // Main -->
+    <main>
+
+      <!-- // Container -->
+      <div class="container"> 
+
+        <!-- // Row -->
+        <div class="row mb-3 mt-5">
+
+          <!-- // Col 9 -->
+
+          <div class="col-sm-9">
+
+            <div class="col col-md-12 d-flex justify-content-center justify-content-md-start">
+              <h1>BerryBunny</h1>
+            </div>
+
+          </div> <!-- \\ Col 9 -->
+
+          <!-- // Col 3 -->
+          <div class="col-sm-3">
+
+            <div class="col col-md-12 d-flex justify-content-center justify-content-md-start">
+                <a href="profile.html" class="pull-right"><img title="profile image" class="rounded-circle img-responsive avatar" src="images/users/avatar-1.png"></a>
+            </div>
+
+          </div> <!-- \\ Col 3 -->
+        </div> <!-- // Row -->
+
+        <!-- // Row -->
+        <div class="row">
+
+          <!-- // Col 3 -->
+          <div class="col-sm-3">
+
+          <!-- // Left Col-->
+
+            <!-- // User Info -->
+            <div class="card mb-3" style="">
+              <div class="card-header">
+                <i class="fa-solid fa-user"></i> User Info: 
+              </div> 
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Joined: 1.23.2023</li>
+                <li class="list-group-item">Last seen: Yesterday</li>
+                <li class="list-group-item">Real name: Mary Jane</li>
+                <li class="list-group-item">Profile: <a href="profile.html">View</a></li>
+              </ul>
+            </div>
+            <!-- \\ User Info -->
+
+            <!-- // User Activity -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa-solid fa-gauge"></i> User Activity: 
+              </div>  
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Likes: <div class="badge bg-secondary">6</div></li>
+                <li class="list-group-item">Posts: <div class="badge bg-secondary">10</div></li>
+                <li class="list-group-item">Comments: <div class="badge bg-secondary">4</div></li>
+              </ul>
+              </div>
+            <!-- \\ User Activity -->
+
+          </div> <!-- \\ Left Col -->
+
+          <!-- // Content Col-->
+
+          <!-- Tabs (col-sm-9) -->
+
+          <div class="col-sm-9">
+
+            <!-- // Nav Tabs -->
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+                <!-- Tab Home -->
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" title="My Status"><i class="fa-solid fa-bullhorn"></i></button>
+
+                <!-- Tab Posts -->
+                <button class="nav-link" id="nav-posts-tab" data-bs-toggle="tab" data-bs-target="#nav-posts" type="button" role="tab" aria-controls="nav-posts" aria-selected="false" title="My Posts"><i class="fa-solid fa-comment"></i></button>
+
+                <!-- Tab Comments -->
+                <button class="nav-link" id="nav-comments-tab" data-bs-toggle="tab" data-bs-target="#nav-comments" type="button" role="tab" aria-controls="nav-comments" aria-selected="false" title="My Comments"><i class="fa-solid fa-comments"></i></button>
+
+                <!-- Tab Messages -->
+                <button class="nav-link" id="nav-messages-tab" data-bs-toggle="tab" data-bs-target="#nav-messages" type="button" role="tab" aria-controls="nav-messages" aria-selected="false" title="Private Messages"><i class="fa-solid fa-envelope"></i></button>
+
+                <!-- Tab Settings -->
+                <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-settings" aria-selected="false" title="My Settings"><i class="fa-solid fa-screwdriver-wrench"></i></button>
+
+                <!-- Tab Reset -->
+                <button class="nav-link" id="nav-reset-tab" data-bs-toggle="tab" data-bs-target="#nav-reset" type="button" role="tab" aria-controls="nav-reset" aria-selected="false" title="Reset My Password"><i class="fa-solid fa-lock"></i></button>
+
+              </div>
+            </nav>
+            <!-- \\ Nav Tabs -->
+
+            <!-- // Tab Content -->
+            <div class="tab-content" id="nav-tabContent">
+
+              <!-- // Home Tab / Status -->
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="mt-3 mb-3">
+                  <h4>User:</h4> 
+                </div>
+
+                <form>
+                  <div class="card mt-3 mb-3 p-2">
+                    <div class="mb-3">
+                      <label for="statusFormControlTextarea" class="form-label fw-bold">My Status:</label>
+                        <textarea class="form-control bg-body-tertiary" id="statusFormControlTextarea" rows="3" placeholder="Some status..."></textarea>
+                    </div>
+                      <button type="submit" class="btn btn-primary mb-3"><i class="fa-solid fa-check"></i> Submit</button>
+                  </div>
+                </form>
+              </div>
+              <!-- \\ Home Tab / Status -->
+
+              <!-- // Posts Tab -->
+              <div class="tab-pane fade show" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
+                <div class="mt-3 mb-3">
+                  <h4>Posts:</h4>
+                </div>  
+                <div class="card mt-3 mb-3">
+                  <div class="card-header mb-2 fw-bold"><i class="fa-solid fa-comment"></i>&nbsp;My Posts:
+                  </div>
+                  <div class="card-body p-0 mb-2">
+                    <div class="">
+                      <table id="posts" class="table table-striped table-bordered table-hover dt-responsive w-100">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="all">ID:</th>
+                            <th scope="col" class="all">Post:</th>
+                            <th scope="col" class="desktop text-center">Image:</th>
+                            <th scope="col" class="desktop">Author:</th>                                                        
+                            <th scope="col" class="desktop">Date:</th>
+                            <th scope="col" class="all text-center">Actions:</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="align-middle">1</th>
+                            <td class="align-middle">Post Title 1</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/3/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">2</th>
+                            <td class="align-middle">Post Title 2</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/4/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                            <th scope="row" class="align-middle">3</th>
+                            <td class="align-middle">Post Title 3</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td>  
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/5/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">4</th>
+                            <td class="align-middle">Post Title 4</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td>  
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/6/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">5</th>
+                            <td class="align-middle">Post Title 5</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/7/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">6</th>
+                            <td class="align-middle">Post Title 6</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/8/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">7</th>
+                            <td class="align-middle">Post Title 7</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/9/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a>  
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">8</th>
+                            <td class="align-middle">Post Title 8</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td>  
+                            <td class="align-middle">BerryBunny</td>                           
+                            <td class="align-middle">1/10/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">9</th>
+                            <td class="align-middle">Post Title 9</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td>  
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/11/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">10</th>
+                            <td class="align-middle">Post Title 10</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/12/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">11</th>
+                            <td class="align-middle">Post Title 11</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/13/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>                            
+                            <th scope="row" class="align-middle">12</th>
+                            <td class="align-middle">Post Title 12</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="100" src="images/posts/default_post.jpg">
+                            </td> 
+                            <td class="align-middle">BerryBunny</td>                              
+                            <td class="align-middle">1/14/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- \\ Posts Tab -->
+
+              <!-- // Comments Tab -->
+              <div class="tab-pane fade show" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
+                <div class="mt-3 mb-3">
+                  <h4>Comments:</h4>
+                </div>  
+                <div class="card mt-3 mb-3">
+                  <div class="card-header mb-2 fw-bold"><i class="fa-solid fa-comments"></i>&nbsp;My Comments:
+                  </div>
+                  <div class="card-body p-0 mb-2">
+                    <div class="">
+                      <table id="comments" class="table table-striped table-bordered table-hover dt-responsive w-100">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="all">ID:</th>
+                            <th scope="col" class="all">Comment:</th>
+                            <th scope="col" class="desktop text-center">Avatar:</th>   
+                            <th scope="col" class="desktop">User:</th>                                                     
+                            <th scope="col" class="desktop">Date:</th>
+                            <th scope="col" class="all text-center">Actions:</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="align-middle">1</th>
+                            <td class="align-middle">Comment 1</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="50" src="images/users/avatar-1.png">
+                            </td>
+                            <td class="align-middle">BerryBunny</td>
+                            <td class="align-middle">1/23/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">2</th>
+                            <td class="align-middle">Comment 2</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="50" src="images/users/avatar-1.png">
+                            </td>
+                            <td class="align-middle">BerryBunny</td>                            
+                            <td class="align-middle">1/24/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">3</th>
+                            <td class="align-middle">Comment 3</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="50" src="images/users/avatar-1.png">
+                            </td>
+                            <td class="align-middle">BerryBunny</td>                            
+                            <td class="align-middle">1/25/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a> 
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="align-middle">4</th>
+                            <td>Comment 4</td>
+                            <td class="align-middle text-center">
+                              <img class="img-thumbnail img-responsive" height="50" width="50" src="images/users/avatar-1.png">
+                            </td>
+                            <td class="align-middle">BerryBunny</td>                            
+                            <td class="align-middle">1/26/2023</td>
+                            <td class="align-middle text-center">  
+                              <a href="#" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-edit"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="fa-solid fa-close"></i></a>  
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- \\ Comments Tab -->
+
+              <!-- // Messages Tab -->
+              <div class="tab-pane fade" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+                <div class="mt-3 mb-3">
+                  <h4>Private Messages:</h4>
+                </div>  
+                <div class="mt-3">
+                  <div class="card mb-3">
+                    <div class="card-header">
+                      My Inbox: 
+                    </div> 
+                    <div class="card-body p-0">  
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fa-solid fa-envelope fa-fw"></i> <a href="#" class="card-link">Message Link 1</a></li>
+                        <li class="list-group-item"><i class="fa-solid fa-envelope fa-fw"></i> <a href="#" class="card-link">Message Link 2</a></li>
+                        <li class="list-group-item"><i class="fa-solid fa-envelope fa-fw"></i> <a href="#" class="card-link">Message Link 3</a></li>
+                        <li class="list-group-item"><i class="fa-solid fa-envelope fa-fw"></i> <a href="#" class="card-link">Message Link 4</a></li>    
+                      </ul>  
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class="btn btn-primary"><i class="fa-solid fa-edit"></i> Compose</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- \\ Messages Tab -->
+
+              <!-- // Settings Tab -->
+              <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+                <div class="mt-3 mb-3">
+                  <h4>Settings:</h4>
+                </div>
+                <form>
+                  <div class="card mt-3 mb-3">
+                    <div class="card-header">My Settings:</div>
+                      <div class="card-body p-2">
+                        <div class="input-group mb-3">
+                          <label for="firstname_FormControlInput" class="input-group-text">First Name:</label>
+                          <input type="text" class="form-control" id="firstname_FormControlInput" placeholder="My First Name">
+                        </div>
+                        <div class="input-group mb-3">
+                          <label for="lastname_FormControlInput" class="input-group-text">Last Name:</label>
+                          <input type="text" class="form-control" id="lastname_FormControlInput" placeholder="My Last Name">
+                        </div>
+                        <div class="input-group mb-3">
+                          <label for="email_FormControlInput" class="input-group-text">Email Address:</label>
+                          <input type="email" class="form-control" id="email_FormControlInput" placeholder="name@example.com">
+                        </div>
+                        <div class="input-group mb-3">
+                          <label class="input-group-text" for="avatar_inputGroupFile">Avatar:</label>
+                          <input type="file" class="form-control" id="avatar_inputGroupFile">
+                        </div>                        
+                        <div class="mb-3">
+                          <label for="aboutme_FormControlTextarea" class="form-label">About Me:</label>
+                          <textarea class="form-control bg-body-tertiary" id="aboutme_FormControlTextarea" rows="3" placeholder="Some things about me... "></textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                          <label for="website_FormControlInput" class="input-group-text">Website:</label>
+                          <input type="text" class="form-control" id="website_FormControlInput" placeholder="https://www.example.com">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3"><i class="fa-solid fa-check"></i> Submit</button>
+                        <button type="reset" class="btn btn-secondary mb-3"><i class="fa-solid fa-arrow-rotate-left"></i> Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- \\ Settings Tab -->
+
+              <!-- // Reset Tab / Password -->
+              <div class="tab-pane fade" id="nav-reset" role="tabpanel" aria-labelledby="nav-reset-tab">
+                <div class="mt-3 mb-3">
+                  <h4>Password:</h4>
+                </div>
+                <form>
+                  <div class="card mt-3 mb-3">
+                    <div class="card-header">My Password Reset:
+                    </div>
+                    <div class="card-body p-2">
+                      <div class="input-group mb-3">
+                        <label for="password_FormControlInput" class="input-group-text">Password:</label>
+                        <input type="password" class="form-control" id="password_FormControlInput" placeholder="New Password">
+                      </div>
+                      <div class="input-group mb-3">
+                        <label for="confirmpass_FormControlInput" class="input-group-text">Confirm:</label>
+                        <input type="password" class="form-control" id="confirmpass_FormControlInput" placeholder="Repeat New Password">
+                      </div>
+                      <button type="submit" class="btn btn-primary mb-3"><i class="fa-solid fa-check"></i> Submit</button>
+                      <button type="reset" class="btn btn-secondary mb-3"><i class="fa-solid fa-arrow-rotate-left"></i> Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div> 
+              <!-- \\ Reset Tab / Password -->
+
+            </div> <!-- \\ Tab Content -->
+           <!-- \\ Content Col -->
+          </div> <!-- \\ Tabs (col-sm-9) -->
+        </div> <!-- \\ Row  -->
+      </div> <!-- \\ Container -->
+
+    </main> <!-- \\ Main -->
+
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JQuery JS -->
+    <script src="assets/jquery/js/jquery.min.js"></script>
+
+    <!-- dataTables JS -->  
+    <script src="assets/datatables/datatables-1.13.4/js/jquery.dataTables.min.js"></script>  
+    <script src="assets/datatables/datatables-1.13.4/js/dataTables.bootstrap5.min.js"></script>  
+    <script src="assets/datatables/responsive-2.4.1/js/dataTables.responsive.min.js"></script>  
+    <script src="assets/datatables/responsive-2.4.1/js/responsive.bootstrap5.min.js"></script>
+
+     <!-- // dataTables Init --> 
+     <script>
+     window.addEventListener('load', function () {
+        $(document).ready(function(){
+
+          $('#posts').DataTable({
+            responsive: true,
+            "columns":[
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": false
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": false
+               }
+            ]
+          });
+
+          $('#comments').DataTable({
+            responsive: true,
+            "columns":[
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": false
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": true
+               },
+               {
+                  "sortable": false
+               }
+            ]
+          });          
+
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function(e){
+    
+              $('#posts').css("width", '100%');
+              $('#comments').css("width", '100%');
+
+              $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+            });   
+        });
+     });
+     </script>
+     <!-- \\ dataTables Init -->    
+      
+  </body>
+</html>
+       
