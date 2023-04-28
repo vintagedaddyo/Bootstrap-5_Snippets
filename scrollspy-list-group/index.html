@@ -68,12 +68,14 @@
           position: relative;
           /* lgi-list-scollspy vh */
           height: 89.98vh;
+          /* No Scrollbar Display */
           -ms-overflow-style: none; /* Internet Explorer, Edge */
           scrollbar-width: none; /* Firefox */
           overflow-y: scroll;
         }
 
         .lgi-list-scrollspy::-webkit-scrollbar {
+          /* No Scrollbar Display */
           display: none; /* Chrome, Safari, Opera */
         }
 
@@ -94,11 +96,13 @@
         and (width: 760px) 
         and (height: 360px)
         and (orientation: landscape) {         
-
+          
+          /* lgi-list modify f-direction */
           #lgi-list { 
             flex-direction: row !important;
           }
 
+          /* lgi-list unset border & rad */
           #lgi-list a.list-group-item { 
             border: unset !important;
             border-radius: unset;
@@ -107,16 +111,15 @@
             text-align: center;            
           }
 
+          /* lgi-list add border rad since (now pill-like) */
           #lgi-list a.list-group-item.list-group-item-action.active { 
             border-radius: 3px !important;
           } 
-
 
           /* lgi-list-scollspy landscape vh */
           .lgi-list-scrollspy {
             height: 59.98vh;
           }
-
 
         }
 
@@ -124,12 +127,14 @@
         @media only screen
         and (width: 667px) 
         and (height: 375px)
-        and (orientation: landscape) {         
+        and (orientation: landscape) {  
 
+          /* lgi-list modify f-direction */
           #lgi-list { 
             flex-direction: row !important;
           }
 
+          /* lgi-list unset border & rad */
           #lgi-list a.list-group-item { 
             border: unset !important;
             border-radius: unset;
@@ -137,7 +142,8 @@
             margin-bottom: 6px;
             text-align: center;                 
           }  
-
+          
+          /* lgi-list add border rad since (now pill-like) */
           #lgi-list a.list-group-item.list-group-item-action.active { 
             border-radius: 3px !important;
           } 
