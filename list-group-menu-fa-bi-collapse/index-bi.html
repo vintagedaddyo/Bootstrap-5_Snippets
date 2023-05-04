@@ -255,12 +255,12 @@
       <script>
          $(document).ready(function() {
             $('#list-group-menu .collapse').on('show.bs.collapse', function() {
-               var $head = $(this).prev();
-               $head.find('span').removeClass('bi-chevron-down').addClass('bi-chevron-up');
+               var $menu_bi_icon = $(this).prev();
+               $menu_bi_icon.find('span').removeClass('bi-chevron-down').addClass('bi-chevron-up');
             });
             $('#list-group-menu .collapse').on('hide.bs.collapse', function() {
-               var $head = $(this).prev();
-               $head.find('span').removeClass('bi-chevron-up').addClass('bi-chevron-down');   
+               var $menu_bi_icon = $(this).prev();
+               $menu_bi_icon.find('span').removeClass('bi-chevron-up').addClass('bi-chevron-down');   
             });
          });
       </script>
