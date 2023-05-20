@@ -1,0 +1,66 @@
+/** Color Modes Page Styles **/
+
+/** test-color-modes is just a base example **/
+
+/* Prefers Color Scheme - Light */
+@media (prefers-color-scheme: light) {
+
+	/** since we still switch theme in scheme with toggler **/
+
+	/* auto test-color-modes */
+	[data-bs-theme=auto] .test-color-modes {
+
+		background-color: var(--bs-tertiary-bg);
+		color: teal;
+
+	}
+
+	/* light test-color-modes */
+	[data-bs-theme=light] .test-color-modes {
+
+		background-color: var(--bs-tertiary-bg);
+		color: blue;
+
+	}
+
+	/* dark test-color-modes */
+	[data-bs-theme=dark] .test-color-modes {
+
+	    background-color: var(--bs-tertiary-bg);
+	    color: orange;
+
+	}
+
+}
+
+/* Prefers Color Scheme - Dark */
+@media (prefers-color-scheme: dark) {
+
+	/** since we still switch theme in scheme with toggler **/	
+
+	/* auto test-color-modes */
+	[data-bs-theme=auto] .test-color-modes {
+
+		background-color: var(--bs-tertiary-bg);
+		color: teal;
+
+	}
+
+	/* light test-color-modes */
+	[data-bs-theme=light] .test-color-modes {
+
+		background-color: var(--bs-tertiary-bg);
+		color: blue;
+
+	}
+
+	/* dark test-color-modes */
+	[data-bs-theme=dark] .test-color-modes {
+
+	    background-color: var(--bs-tertiary-bg);
+	    color: orange;
+
+	}
+	
+}
+
