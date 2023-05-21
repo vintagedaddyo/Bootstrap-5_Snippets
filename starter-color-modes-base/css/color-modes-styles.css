@@ -15,7 +15,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
-		--bs-border-color: teal; /* default bs var though let's use color teal for it instead simply for example */
+		--bs-border-color: var(--bs-teal); /* default bs var though let's also use var --bs-teal #20c997 for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
 
@@ -25,7 +25,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
         /* styling without vars */
-		color: teal; /* let's use teal simply for example */
+		color: #20c997; /* let's use bs-teal without using the var simply for example */
 
 	}
 
@@ -37,7 +37,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
-		--bs-border-color: blue; /* default bs var though let's use color blue for it instead simply for example */
+		--bs-border-color: var(--bs-blue); /* default bs var though let's also use var --bs-blue #0d6efd for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
 
@@ -47,7 +47,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
-		color: blue; /* let's use blue simply for example */
+		color: #0d6efd; /* let's use bs-blue without using the var simply for example */
 
 	}
 
@@ -59,7 +59,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #2b3035; /* default bs var dark */
-		--bs-border-color: orange; /* default bs var though let's use color orange for it instead simply for example */
+		--bs-border-color: var(--bs-orange); /* default bs var though let's also use var --bs-orange #fd7e14 for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
         
@@ -69,7 +69,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */	    
-		color: orange;  /* let's use orange simply for example */
+		color: #fd7e14; /* let's use bs-orange without using the var simply for example */
 
 	}
 
@@ -88,7 +88,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #2b3035; /* default bs var dark */
-		--bs-border-color: teal; /* default bs var though let's use color teal for it instead simply for example */
+		--bs-border-color: var(--bs-teal); /* default bs var though let's use color --bs-teal #20c997 for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
 
@@ -98,7 +98,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */
-		color: teal; /* let's use teal simply for example */
+		color: #20c997; /* let's use bs-teal without using the var simply for example */
 
 	}
 
@@ -110,7 +110,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
-		--bs-border-color: blue; /* default bs var though let's use color blue for it instead simply for example */
+		--bs-border-color: var(--bs-blue); /* default bs var though let's use var --bs-blue #0d6efd for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
 
@@ -120,7 +120,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
-		color: blue; /* let's use blue simply for example */
+		color: #0d6efd; /* let's use bs-blue without using the var simply for example */
 
 	}
 
@@ -132,7 +132,7 @@
 
 		/* bs vars */
 		--bs-tertiary-bg: #2b3035; /* default bs var dark */
-		--bs-border-color: orange; /* default bs var though let's use color orange for it instead simply for example */
+		--bs-border-color: var(--bs-orange); /* default bs var though let's use var --bs-orange #fd7e14 for it instead simply for example */
 		--bs-border-width: 1px; /* default bs var */
 		--bs-border-style: solid; /* default bs var */
 
@@ -142,7 +142,7 @@
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */	    
-		color: orange;  /* let's use orange simply for example */
+		color: #fd7e14; /* let's use bs-orange without using the var simply for example */
 
 	}
 	
