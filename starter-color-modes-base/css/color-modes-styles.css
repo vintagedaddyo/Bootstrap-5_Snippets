@@ -10,14 +10,18 @@
 	/* auto test-color-modes */
 	[data-bs-theme=auto] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #f8f9fa;
-		--bs-border-color: teal; /* let's use teal simply for example */
-		--bs-border-width: 1px;
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #f8f9fa; /* example test-color-modes tcm-custom-bg */
+
+		/* bs vars */
+		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
+		--bs-border-color: teal; /* default bs var though let's use color teal for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
 
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg);
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var light */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
         /* styling without vars */
@@ -28,14 +32,18 @@
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #f8f9fa;
-		--bs-border-color: blue; /* let's use blue simply for example */
-		--bs-border-width: 1px;
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #f8f9fa; /* example test-color-modes tcm-custom-bg */		
+
+		/* bs vars */
+		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
+		--bs-border-color: blue; /* default bs var though let's use color blue for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
 
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg); /* custom var */
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var light */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
@@ -46,14 +54,18 @@
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #2b3035;
-		--bs-border-color: orange; /* let's use orange simply for example */
-		--bs-border-width: 1px;
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #2b3035; /* example test-color-modes tcm-custom-bg */		
+
+		/* bs vars */
+		--bs-tertiary-bg: #2b3035; /* default bs var dark */
+		--bs-border-color: orange; /* default bs var though let's use color orange for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
         
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg);
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var dark */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */	    
@@ -71,14 +83,18 @@
 	/* auto test-color-modes */
 	[data-bs-theme=auto] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #2b3035;
-		--bs-border-color: teal; /* let's use teal simply for example */
-		--bs-border-width: 1px;
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #2b3035; /* example test-color-modes tcm-custom-bg */
+
+		/* bs vars */
+		--bs-tertiary-bg: #2b3035; /* default bs var dark */
+		--bs-border-color: teal; /* default bs var though let's use color teal for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
 
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg); /* custom var */
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var dark */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */
@@ -89,14 +105,18 @@
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #f8f9fa;
-		--bs-border-color: blue; /* let's use blue simply for example */
-		--bs-border-width: 1px; 
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #f8f9fa; /* example test-color-modes tcm-custom-bg */
+
+		/* bs vars */
+		--bs-tertiary-bg: #f8f9fa; /* default bs var light */
+		--bs-border-color: blue; /* default bs var though let's use color blue for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
 
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg); /* custom var */
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var light */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
@@ -107,14 +127,18 @@
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
-		/* vars */
-		--bs-tertiary-bg: #2b3035;
-		--bs-border-color: orange; /* let's use orange simply for example */
-		--bs-border-width: 1px;
-		--bs-border-style: solid;
+		/* custom vars */
+		--tcm-custom-bg: #2b3035; /* example test-color-modes tcm-custom-bg */
+
+		/* bs vars */
+		--bs-tertiary-bg: #2b3035; /* default bs var dark */
+		--bs-border-color: orange; /* default bs var though let's use color orange for it instead simply for example */
+		--bs-border-width: 1px; /* default bs var */
+		--bs-border-style: solid; /* default bs var */
 
 		/* styling with vars */
-		background-color: var(--bs-tertiary-bg);
+		background-color: var(--tcm-custom-bg); /* custom var */
+		/*background-color: var(--bs-tertiary-bg);*/ /* default bs var dark */
 		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */	    
