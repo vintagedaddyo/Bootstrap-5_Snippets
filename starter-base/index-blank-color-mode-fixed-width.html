@@ -4,7 +4,7 @@
   <!-- // Head -->
   <head>
     <!-- Bootstrap Color Modes JS -->
-    <script src="assets/bootstrap/js/color-modes.js"></script> 
+    <script src="js/color-modes.js"></script> 
      <!-- Meta -->
      <!-- Charset -->
      <meta charset="utf-8">
@@ -49,16 +49,65 @@
         .dropdown-toggle::after {
           content: unset;
         } 
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: light) {
           .dropdown-toggle::after {
-            fill: #666; <!-- Set icon color for dark mode -->
+            fill: #666; /* Set icon color for light mode */
             opacity: 0.9;
             content: unset;
           }
           path {
-            fill: #666; <!-- Set icon color for dark mode -->
+            fill: #666; /* Set icon color for light mode */
             opacity: 0.9;
           }
+        }
+        @media (prefers-color-scheme: dark) {
+          .dropdown-toggle::after {
+            fill: #666; /* Set icon color for dark mode */
+            opacity: 0.9;
+            content: unset;
+          }
+          path {
+            fill: #666; /* Set icon color for dark mode */
+            opacity: 0.9;
+          }
+        }
+
+        /** Color Modes **/
+
+        /* Scheme Light */
+        @media (prefers-color-scheme: light) {
+
+         [data-bs-theme=auto] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: teal;
+         }
+         [data-bs-theme=light] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: blue;
+         }
+         [data-bs-theme=dark] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: orange;
+         }                  
+
+        }
+
+        /* Scheme Dark */
+        @media (prefers-color-scheme: dark) { 
+
+         [data-bs-theme=auto] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: teal;
+         }
+         [data-bs-theme=light] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: blue;
+         }
+         [data-bs-theme=dark] .test-color-modes {
+            background-color: var(--bs-tertiary-bg);
+            color: orange;
+         } 
+
         }
      </style>
      <!-- \\ CSS -->
@@ -129,25 +178,25 @@
          <div class="row">
 
             <!-- // Col 12 -->
-            <div class="col-md-12 border bg-body-tertiary">
+            <div class="col-md-12 border test-color-modes">
                Col 12
             </div>
             <!-- \\ Col 12 -->
 
             <!-- // Col 3 -->
-            <div class="col-md-3 border bg-body-tertiary">
+            <div class="col-md-3 border test-color-modes">
                Col 3
             </div>
             <!-- \\ Col 3 -->
 
             <!-- // Col 9 -->
-            <div class="col-md-9 border bg-light-subtle">
+            <div class="col-md-9 border test-color-modes">
                Col 9
             </div>
             <!-- \\ Col 9 -->
 
             <!-- // Col 12 -->
-            <div class="col-md-12 border  bg-body-tertiary">
+            <div class="col-md-12 border test-color-modes">
                Col 12
             </div>
             <!-- \\ Col 12 -->
