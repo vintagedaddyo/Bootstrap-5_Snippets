@@ -1,33 +1,63 @@
 /** Color Modes Page Styles **/
 
-/** test-color-modes is just a base example **/
+/** .test-color-modes is just provided simply as a base example **/
 
 /* Prefers Color Scheme - Light */
 @media (prefers-color-scheme: light) {
 
-	/** since we still switch theme in scheme with toggler **/
+	/** since we still switch theme in scheme with toggler **/	
 
 	/* auto test-color-modes */
 	[data-bs-theme=auto] .test-color-modes {
 
+		/* vars */
+		--bs-tertiary-bg: #f8f9fa;
+		--bs-border-color: teal; /* let's use teal simply for example */
+        --bs-border-width: 1px;
+        --bs-border-style: solid;
+
+		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-		color: teal;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+        /* styling without vars */
+		color: teal; /* let's use teal simply for example */
 
 	}
 
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
+        /* vars */
+        --bs-tertiary-bg: #f8f9fa;
+		--bs-border-color: blue; /* let's use blue simply for example */
+        --bs-border-width: 1px;
+        --bs-border-style: solid;
+
+		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-		color: blue;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+		/* styling without vars */        		
+		color: blue; /* let's use blue simply for example */
 
 	}
 
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
+        /* vars */
+        --bs-tertiary-bg: #2b3035;
+		--bs-border-color: orange; /* let's use orange simply for example */
+        --bs-border-width: 1px;
+        --bs-border-style: solid;
+        
+        /* styling with vars */
 	    background-color: var(--bs-tertiary-bg);
-	    color: orange;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+        /* styling without vars */	    
+	    color: orange;  /* let's use orange simply for example */
 
 	}
 
@@ -41,24 +71,54 @@
 	/* auto test-color-modes */
 	[data-bs-theme=auto] .test-color-modes {
 
+		/* vars */
+		--bs-tertiary-bg: #2b3035;
+		--bs-border-color: teal; /* let's use teal simply for example */
+        --bs-border-width: 1px;
+        --bs-border-style: solid;
+
+		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-		color: teal;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+        /* styling without vars */
+		color: teal; /* let's use teal simply for example */
 
 	}
 
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
+        /* vars */
+        --bs-tertiary-bg: #f8f9fa;
+		--bs-border-color: blue; /* let's use blue simply for example */
+        --bs-border-width: 1px; 
+        --bs-border-style: solid;
+
+		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-		color: blue;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+		/* styling without vars */        		
+		color: blue; /* let's use blue simply for example */
 
 	}
 
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
+        /* vars */
+        --bs-tertiary-bg: #2b3035;
+		--bs-border-color: orange; /* let's use orange simply for example */
+        --bs-border-width: 1px;
+        --bs-border-style: solid;
+
+        /* styling with vars */
 	    background-color: var(--bs-tertiary-bg);
-	    color: orange;
+        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+
+        /* styling without vars */	    
+	    color: orange;  /* let's use orange simply for example */
 
 	}
 	
