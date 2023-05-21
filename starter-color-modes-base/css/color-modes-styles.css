@@ -13,12 +13,12 @@
 		/* vars */
 		--bs-tertiary-bg: #f8f9fa;
 		--bs-border-color: teal; /* let's use teal simply for example */
-        --bs-border-width: 1px;
-        --bs-border-style: solid;
+		--bs-border-width: 1px;
+		--bs-border-style: solid;
 
 		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
         /* styling without vars */
 		color: teal; /* let's use teal simply for example */
@@ -28,15 +28,15 @@
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
-        /* vars */
-        --bs-tertiary-bg: #f8f9fa;
+		/* vars */
+		--bs-tertiary-bg: #f8f9fa;
 		--bs-border-color: blue; /* let's use blue simply for example */
-        --bs-border-width: 1px;
-        --bs-border-style: solid;
+		--bs-border-width: 1px;
+		--bs-border-style: solid;
 
 		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
 		color: blue; /* let's use blue simply for example */
@@ -46,18 +46,18 @@
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
-        /* vars */
-        --bs-tertiary-bg: #2b3035;
+		/* vars */
+		--bs-tertiary-bg: #2b3035;
 		--bs-border-color: orange; /* let's use orange simply for example */
-        --bs-border-width: 1px;
-        --bs-border-style: solid;
+		--bs-border-width: 1px;
+		--bs-border-style: solid;
         
-        /* styling with vars */
-	    background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		/* styling with vars */
+		background-color: var(--bs-tertiary-bg);
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
-        /* styling without vars */	    
-	    color: orange;  /* let's use orange simply for example */
+		/* styling without vars */	    
+		color: orange;  /* let's use orange simply for example */
 
 	}
 
@@ -74,14 +74,14 @@
 		/* vars */
 		--bs-tertiary-bg: #2b3035;
 		--bs-border-color: teal; /* let's use teal simply for example */
-        --bs-border-width: 1px;
-        --bs-border-style: solid;
+		--bs-border-width: 1px;
+		--bs-border-style: solid;
 
 		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
-        /* styling without vars */
+		/* styling without vars */
 		color: teal; /* let's use teal simply for example */
 
 	}
@@ -89,15 +89,15 @@
 	/* light test-color-modes */
 	[data-bs-theme=light] .test-color-modes {
 
-        /* vars */
-        --bs-tertiary-bg: #f8f9fa;
+		/* vars */
+		--bs-tertiary-bg: #f8f9fa;
 		--bs-border-color: blue; /* let's use blue simply for example */
-        --bs-border-width: 1px; 
-        --bs-border-style: solid;
+		--bs-border-width: 1px; 
+		--bs-border-style: solid;
 
 		/* styling with vars */
 		background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
 		/* styling without vars */        		
 		color: blue; /* let's use blue simply for example */
@@ -107,18 +107,18 @@
 	/* dark test-color-modes */
 	[data-bs-theme=dark] .test-color-modes {
 
-        /* vars */
-        --bs-tertiary-bg: #2b3035;
+		/* vars */
+		--bs-tertiary-bg: #2b3035;
 		--bs-border-color: orange; /* let's use orange simply for example */
-        --bs-border-width: 1px;
-        --bs-border-style: solid;
+		--bs-border-width: 1px;
+		--bs-border-style: solid;
 
-        /* styling with vars */
-	    background-color: var(--bs-tertiary-bg);
-        border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+		/* styling with vars */
+		background-color: var(--bs-tertiary-bg);
+		border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 
-        /* styling without vars */	    
-	    color: orange;  /* let's use orange simply for example */
+		/* styling without vars */	    
+		color: orange;  /* let's use orange simply for example */
 
 	}
 	
